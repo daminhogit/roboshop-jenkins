@@ -1,6 +1,12 @@
+- name: Create Job template
+  ansible.builtin.template:
+    src: s-pipeline.xml
+    dest: /tmp/s-pipeline.xml
+
+
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
-    config: "{{ lookup('file', 'templates/s-pipeline.xml') }}"
+    config: "{{ lookup('file', '/tmp/s-pipeline.xml') }}"
     name: "CI-Pipelines/{{item}}"
     password: admin123
     url: http://172.31.11.10:8080
