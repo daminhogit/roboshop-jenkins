@@ -1,7 +1,3 @@
-- name: Generate random ID
-  ansible.builtin.shell: sleep 1 ; date | md5sum | awk '{print $1}'
-  register: random
-
 - name: Create Job template
   ansible.builtin.template:
     src: m-pipeline.xml
