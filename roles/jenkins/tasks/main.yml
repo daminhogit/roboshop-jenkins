@@ -3,14 +3,14 @@
     config: "{{ lookup('file', 'templates/folder.xml') }}"
     name: "{{item}}"
     password: admin123
-    url: http://172.31.11.10:8080
+    url: http://44.192.85.252:8080
     user: admin
   loop:
     - CI-Pipelines
 
 
-- name: Include Pipeline Tasks
-  ansible.builtin.include_tasks: s-pipelines.yml
+- name: Include Multi Branch Pipeline Tasks
+  ansible.builtin.include_tasks: m-pipelines.yml
   vars:
     COMPONENT: "{{item}}"
   loop:
@@ -21,4 +21,11 @@
     - shipping
     - payment
 
+
+- name: Include Single Branch Pipeline Tasks
+  ansible.builtin.include_tasks: s-pipelines.yml
+  vars:
+    COMPONENT: "{{item}}"
+  loop:
+    - roboshop-infra
 
