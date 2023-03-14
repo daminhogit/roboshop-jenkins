@@ -21,7 +21,6 @@
     - shipping
     - payment
 
-
 - name: Include Single Branch Pipeline Tasks
   ansible.builtin.include_tasks: s-pipelines.yml
   vars:
