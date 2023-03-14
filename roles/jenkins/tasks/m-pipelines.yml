@@ -6,7 +6,7 @@
   ansible.builtin.template:
     src: m-pipeline.xml
     dest: /tmp/m-pipeline.xml
-    vars:
+  vars:
       random_id: "{{random.stdout}}"
 
 - name: Create a jenkins job using basic authentication
